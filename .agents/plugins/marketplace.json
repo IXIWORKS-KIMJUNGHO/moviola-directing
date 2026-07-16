@@ -1,0 +1,20 @@
+{
+  "name": "ixiworks-moviola",
+  "interface": {
+    "displayName": "IXIWORKS MOVIOLA"
+  },
+  "plugins": [
+    {
+      "name": "moviola-directing",
+      "source": {
+        "source": "local",
+        "path": "./plugins/moviola-directing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

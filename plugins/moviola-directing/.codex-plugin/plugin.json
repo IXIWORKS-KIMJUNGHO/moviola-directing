@@ -1,0 +1,25 @@
+{
+  "name": "moviola-directing",
+  "version": "1.0.0",
+  "description": "Direct MOVIOLA Drafts with its canonical Directing Rules and MCP workflow.",
+  "author": {
+    "name": "IXIWORKS",
+    "url": "https://github.com/IXIWORKS-KIMJUNGHO"
+  },
+  "homepage": "https://github.com/IXIWORKS-KIMJUNGHO/moviola-directing",
+  "repository": "https://github.com/IXIWORKS-KIMJUNGHO/moviola-directing",
+  "keywords": ["moviola", "storyboard", "directing", "assistant-director"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "MOVIOLA Directing",
+    "shortDescription": "Direct MOVIOLA Drafts with one canonical rulebook.",
+    "longDescription": "Author, edit, review, and render MOVIOLA Scenes and Cuts through its MCP tools while following the same Directing Rules used by the server.",
+    "developerName": "IXIWORKS",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Review my MOVIOLA Draft and suggest the next directing decision.",
+      "Build the next Scene with complete Cuts and explain the choices."
+    ]
+  }
+}

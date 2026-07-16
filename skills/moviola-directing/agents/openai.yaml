@@ -1,0 +1,4 @@
+interface:
+  display_name: "MOVIOLA Directing"
+  short_description: "Direct MOVIOLA Drafts with one canonical rulebook."
+  default_prompt: "Use $moviola-directing to inspect my MOVIOLA Draft and direct the next scene."
