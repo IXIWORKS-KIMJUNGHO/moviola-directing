@@ -1,7 +1,7 @@
 {
   "name": "moviola-directing",
   "version": "1.1.0",
-  "description": "Direct MOVIOLA Drafts with the browser-equivalent Assistant Director contract and canonical Directing Rules.",
+  "description": "Direct MOVIOLA Drafts with the shared Assistant Director manual and canonical Directing Rules.",
   "author": {
     "name": "IXIWORKS",
     "url": "https://github.com/IXIWORKS-KIMJUNGHO"
@@ -12,8 +12,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "MOVIOLA Directing",
-    "shortDescription": "Use the browser-equivalent MOVIOLA Assistant Director.",
-    "longDescription": "Author, edit, review, and render MOVIOLA Scenes and Cuts through its MCP tools while following the same working contract and Directing Rules as the browser Assistant Director.",
+    "shortDescription": "Direct MOVIOLA Drafts with one shared manual.",
+    "longDescription": "Author, edit, review, and render MOVIOLA Scenes and Cuts through its MCP tools while following the browser-equivalent work manual and canonical Directing Rules.",
     "developerName": "IXIWORKS",
     "category": "Productivity",
     "capabilities": ["Read", "Write"],
