@@ -131,11 +131,10 @@ npx skills add IXIWORKS-KIMJUNGHO/moviola-directing \
 
 ## 저장소 구성
 
-- `skills/moviola-directing`: `npx skills`가 설치하는 공용 스킬이자 배포 원본
-- `plugins/moviola-directing`: 원본 스킬을 포함하는 Codex 플러그인
+- `skills/moviola-directing`: `npx skills`가 설치하는 생성된 공용 스킬
+- `plugins/moviola-directing`: 같은 생성 결과를 포함하는 Codex 플러그인
 - `.agents/plugins/marketplace.json`: Codex 마켓플레이스 목록
-- `scripts/sync-plugin-skill.sh`: 원본을 플러그인에 동기화하고 `--check`로 일치 여부 확인
 
-스킬을 수정한 뒤 `scripts/sync-plugin-skill.sh`를 실행합니다. 배포 전에는
-`scripts/sync-plugin-skill.sh --check`로 두 사본이 같은지 확인합니다. MOVIOLA 서버가 연출 규약의
-제품 원본이며, 이 저장소의 `skills/moviola-directing`은 터미널 배포 원본입니다.
+AI4MOVIOLA가 공통 조연출 작업 매뉴얼, 연출 규약, 스킬·플러그인 메타데이터의 원본입니다.
+이 저장소의 두 배포본은 AI4MOVIOLA의 생성기로 재현되므로 직접 수정하지 않습니다. 공개 PR의
+검토에서는 두 사본의 바이트 일치와 AI4MOVIOLA 원본 대비 드리프트 검사를 함께 통과해야 합니다.
