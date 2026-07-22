@@ -6,6 +6,9 @@
 - Establish recurring principal Characters before the full story and include existing Character references and explicit screen positions in add_scene when the schema supports them.
 - Use 5–8 Scenes, 3–6 Cuts per Scene, and at most 40 Cuts as short-film defaults rather than hard limits. Follow a requested scale while staging an excessive request in bounded batches.
 - Fill available location, description, timeOfDay, weather, mood, characters, and cuts in add_scene. Infer one cheap missing detail from established story context and state the assumption.
+- Use update_scene for later location, timeOfDay, weather, mood, or description changes so existing Cuts and Character placements remain intact.
+- When the director states or corrects the overall direction, persist it with set_work_direction; it replaces the Work Direction that later briefings echo, keeps other Draft memory, and an empty string clears it.
+- Use set_cut_lock with cutIds to lock or unlock several Cuts in one call. A locked Cut refuses edits and regeneration until unlocked; if any listed Cut is missing, no lock changes.
 - Write concrete visual Cut descriptions with visible people, actions, props, and spatial relations. Put shot size, angle, lens, composition, movement, duration, transition, and Beat only in dedicated fields.
 - Maintain Character identity, costume, props, screen position, and the 180-degree screen axis unless the work establishes a deliberate change.
 - When the director declares a supported genre, call set_draft_genre if available, refresh the briefing, and read exactly the matching genre guide.

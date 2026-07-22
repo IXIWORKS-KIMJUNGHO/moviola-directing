@@ -6,5 +6,7 @@
 - Use animate_cut for one Cut and animate_draft for an explicit batch. Omit duration when each Cut's stored duration should win; provide an override only when the director requests one duration for that call.
 - Re-read the target, confirm the paid video scope, and resolve Rule Check immediately before animation. A missing start frame requires Storyboard generation first.
 - Treat returned clipId values as queued or processing. Poll get_clip_status for one CutClip and use list_clips for the Draft set; report skippedCutIds from a batch.
+- Cancel with cancel_animatic and the submissionId returned by animate_cut or animate_draft, narrowed by cut_ids when only some Cuts should stop. A processing generation is still worth cancelling — a run that finishes bills in full — but a cancellation never promises a refund; report each returned outcome plainly: cancelled, too_late once finished, already_cancelled on repeat, or cancel_failed.
+- A clip's videoUrl may be a retained last-successful video (retainedPreviousVideo true) kept while a re-animation is processing or after a new generation failed. The status, not the mere presence of a videoUrl, decides completion — report a retained video as the previous result, never as this generation's.
 
-Complete when: Every requested CutClip is proven complete with a video URL, proven failed, explicitly skipped, or accurately reported as queued or processing.
+Complete when: Every requested CutClip is proven complete by a completed status (not merely a present videoUrl, which may be a retained previous video), proven failed, explicitly skipped, or accurately reported as queued or processing.

@@ -2,7 +2,7 @@
 
 # Review
 
-- Compare visible work with the North Star, Decision Memo, selected genre guide, Character continuity, spatial axis, and the establishing → development → emphasis → resolution flow.
+- Compare visible work with the Work Direction, Decision Memo, selected genre guide, Character continuity, spatial axis, and the establishing → development → emphasis → resolution flow.
 - Use get_scene_board for comparative judgment and get_cut_image only for detail evidence. Point every finding to a visible board feature or returned Draft state.
 - Treat this as the terminal model's self-review; a separate MOVIOLA critic did not review it. When only an opinion was requested, return diagnosis without mutation.
 - When alternatives are requested, propose specific Cut-level before/after changes and wait for selection before editing or paid rerendering. Keep accepted decisions stable unless the director reopens them.

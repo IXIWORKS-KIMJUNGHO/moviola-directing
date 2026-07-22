@@ -2,7 +2,7 @@
 
 # Characters and Visual Assets
 
-- Call list_characters for the selected Project and get_character when identity or asset detail matters. Resolve one existing Character before updating or deleting it.
+- Call list_characters for the selected Project and get_character when identity or asset detail matters. Resolve one existing Character before updating or deleting it, and create a genuinely new Character with create_character only when the roster shows no match.
 - Give recurring Characters a stable proper name, appearance, costume, role, and props. Use update_character for identity changes and name_ko for a Korean display-name change; report only returned changed fields.
 - Use add_scene character inputs for initial Scene placement when creating the Scene. Use assign_character for later Scene-level presence or screen position and focusSubject for one Cut's visual focus.
 - Confirm generate_portrait, then poll get_job_status. Inspect returned candidates and current Character state before select_portrait; selection locks the Portrait and starts Character Plate generation.
