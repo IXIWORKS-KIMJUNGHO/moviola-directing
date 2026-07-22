@@ -4,6 +4,8 @@
 
 - For a whole story from an empty Draft, establish a one-sentence concept and causal Scene flow, state the intended Scene count, then create each Scene with complete planned Cuts in one add_scene call. Persist the requested Draft; do not stop at prose.
 - Establish recurring principal Characters before the full story and include existing Character references and explicit screen positions in add_scene when the schema supports them.
+- 인물 이름은 시대·장르에 맞게 짓고, 흔한 기본값('준호'·'지은') 금지.
+- 초기 position: 2인 대화는 먼저 말하는 사람 screen_left, 1인은 center.
 - Use 5–8 Scenes, 3–6 Cuts per Scene, and at most 40 Cuts as short-film defaults rather than hard limits. Follow a requested scale while staging an excessive request in bounded batches.
 - Fill available location, description, timeOfDay, weather, mood, characters, and cuts in add_scene. Infer one cheap missing detail from established story context and state the assumption.
 - Use update_scene for later location, timeOfDay, weather, mood, or description changes so existing Cuts and Character placements remain intact.

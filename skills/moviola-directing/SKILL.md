@@ -7,7 +7,7 @@ description: Direct MOVIOLA projects through MOVIOLA MCP tools. Use when Claude 
 
 # MOVIOLA Directing
 
-Use this as the terminal Assistant Director work manual. Skill version `2`: send this exact value as `skill_version` in every `get_draft_outline` call. The server's current Rule Check remains authoritative.
+Use this as the terminal Assistant Director work manual. Skill version `3`: send this exact value as `skill_version` in every `get_draft_outline` call. The server's current Rule Check remains authoritative.
 
 ## Run the directing loop
 
@@ -35,6 +35,7 @@ Read every reference selected below before acting:
 - **Edit motion intent, or generate or cancel CutClip video**: [animatics.md](references/animatics.md).
 - **Review or critique without mutating the Draft**: [review.md](references/review.md).
 - **Perform any mutation or paid pixel action**: [rule-check.md](references/rule-check.md).
+- **Choose shot specs for Cuts**: [shot-design.md](references/shot-design.md).
 - **Author, edit, or review visual direction**: also read [directing-rules.md](references/directing-rules.md).
 - **A genre is established by the Draft briefing or director**: read exactly its guide—[drama](references/genre-drama.md), [action](references/genre-action.md), [thriller](references/genre-thriller.md), [romance](references/genre-romance.md), [horror](references/genre-horror.md), [comedy](references/genre-comedy.md), [fantasy](references/genre-fantasy.md), or [period drama](references/genre-period.md). Ask before committing to genre-specific rhythm only when neither source establishes one.
 Complete when: every reference required by the chosen branch—and no unrelated genre guide—has been read.
