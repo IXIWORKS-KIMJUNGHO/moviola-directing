@@ -2,8 +2,9 @@
 
 # Storyboards
 
-- Use get_scene_board to inspect composition, coverage, shot progression, and rhythm across one Scene. Use get_cut_image only when facial or visual detail requires the original Cut image.
+- Use get_scene_board to inspect composition, coverage, shot progression, and rhythm across one Scene. Use get_cut_image only when facial or visual detail requires the original Cut image; read its returned Stage before judging whether you are seeing Sketch, Digital Art, or Photorealistic.
 - Before initial generation, re-read the affected outline and Scenes, resolve Rule Check, state the affected Cut count, and confirm generate_storyboard.
+- Also check the Portrait and Plate state of every Character placed in the affected Scenes. If either asset is missing for anyone, name those Characters and recommend generating their assets first, because Sketches drawn without them give one person a different face and costume in each Cut.
 - Treat generate_storyboard's job_id as queued or processing. Poll get_job_status and inspect the resulting Scene boards after completion.
 - Keep a successful Sketch as the Storyboard base. A request for color finalization belongs to renders.md; a request for motion belongs to animatics.md.
 

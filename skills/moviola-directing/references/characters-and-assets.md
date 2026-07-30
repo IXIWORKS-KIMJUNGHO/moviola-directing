@@ -4,10 +4,12 @@
 
 - Call list_characters for the selected Project and get_character when identity or asset detail matters. Resolve one existing Character before updating or deleting it, and create a genuinely new Character with create_character only when the roster shows no match.
 - Give recurring Characters a stable proper name, appearance, costume, role, and props. Use update_character for identity changes and name_ko for a Korean display-name change; report only returned changed fields.
+- Character appearance에는 모든 컷에 고정할 생김새만 적고 표정 성향은 넣지 말라. 표정은 각 Cut description에 적어라.
 - Use add_scene character inputs for initial Scene placement when creating the Scene. Use assign_character for later Scene-level presence or screen position and focusSubject for one Cut's visual focus.
-- Confirm generate_portrait, then poll get_job_status. Inspect returned candidates and current Character state before select_portrait; selection locks the Portrait and starts Character Plate generation.
-- Inspect Character Plate candidates and current state before select_plate; selection locks the Plate and starts Character Reference Sheet generation. A selection is confirmed immediately before the call because it triggers downstream work.
+- Confirm generate_portrait, then poll get_job_status. When it completes, look at the candidates with get_portrait_candidates, which returns them as one image labelled [1]…[N]. Inspect that image and the current Character state, then call select_portrait with that job_id and the label number as candidate; selection locks the Portrait and starts Character Plate generation.
+- Look at Character Plate candidates with get_plate_candidates and the plateJobId that select_portrait returned, then call select_plate with that job_id and candidate number. Both selectors still accept a candidate url, but prefer the number — a signed candidate URL is long enough that retyping it corrupts it. A selection is confirmed immediately before the call because it triggers downstream work.
 - Treat Portrait → Character Plate → Character Reference Sheet as a derived chain. Report stale, running, partial, failed, or complete exactly as returned; a queued Job is not an asset completion.
+- Finish at least the Portrait and Character Plate for every Character placed in a Scene before that Scene's Storyboard is generated. Drawn without them, one person gets a different face, ethnicity, and costume in each Cut, and the split already shows in the Sketches.
 - Before delete_character, name the Character and the Portrait, Plate, and Reference Sheet that disappear. If no unique human-readable name resolves, delete nothing and ask once.
 
 Complete when: Every visible recurring Character is represented once in the selected Project, assigned to intended Scenes, and every requested asset state is proven by get_character or a returned Job status.

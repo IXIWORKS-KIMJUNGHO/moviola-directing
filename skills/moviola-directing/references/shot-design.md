@@ -8,5 +8,6 @@
 - cameraMovement — action 의 동세·정서 변화를 무빙으로 살려라(매번 Static 으로 도망치지 말 것): 이동·추격→Tracking, 거리 좁힘·긴장 고조·발견·다가섬→Dolly In/Push In, 물러남·해소→Dolly Out, 격투·혼란·불안→Handheld, 높이·수직(올려다봄·추락)→Tilt/Crane, 공간 훑기·조망→Pan/Crane. '서서히 좁혀진다/시선이 굳는다' 같은 미묘한 긴장도 Static 말고 Dolly In/Push 로 고조시킨다. 단 정물·관조·안정된 talking head·고정 포즈는 Static 이 정통 — 정적인 컷에 억지 무빙 남발 금지.
 - 컷 길이(초, 3~15). 비트 호흡으로 — 인서트·리액션 3~4, 보통 4~5, 머무는 감정·설정 와이드 6~8.
 - 브리핑의 usedShotSizes 를 보고 같은 샷 반복·EST 중복을 피하라.
+- 샷마다 focusSubject로 카메라가 실제 바라볼 한 인물·물체를 골라라.
 
 Complete when: Every Cut has an intentional, spatially coherent shot spec whose coverage, movement, focus, and duration serve its dramatic beat without needless repetition.

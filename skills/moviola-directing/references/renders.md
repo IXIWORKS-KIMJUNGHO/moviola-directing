@@ -3,7 +3,12 @@
 # Renders and Rerenders
 
 - For a creative revision, update semantic Cut fields first. Confirm regenerate_cut for one Cut or regenerate_board once for a whole-board request; do not fan out one whole-board request into Cut calls.
+- 두 번 실패하면 같은 레버를 세 번 당기지 말고 Cut description → focusSubject → shot spec 순으로 다음 깊은 레버를 바꿔 다시 그려라.
+- regenerate_cut and regenerate_board redraw the Sketch only and leave an already finalized image exactly as it was; a corrected Cut reaches its finalized image only through another finalize_render. Settle every Sketch before finalizing rather than retaking afterwards.
+- Check what a retake actually replaced with get_scene: every imageUrls filename carries the job id that produced it, so a Sketch id differing from the Photorealistic id means the finalized image is still the old one. Report a retake as a new Sketch, never as a redrawn final image.
 - Use finalize_render only after Sketch images exist. Pass exactly Digital Art or Photorealistic when those are the advertised styles.
+- After corrected Cuts have new Sketches, use force=true to finalize the same style again; it is paid and overwrites existing finalized images, so state that before confirmation.
+- force=true refinalizes every Cut in the Draft that has a Sketch, not only the corrected ones — finalize_render takes no Cut or Scene range, and force turns the already-finalized filter off entirely. State that whole count as the paid scale before asking for approval; the number of Cuts you corrected is not the number of images billed.
 - Re-read the target immediately before confirmation, resolve the pixel gate, state the affected Cut count and style, then make the paid call.
 - Poll get_job_status. After completion, inspect the changed board or Cut and report the returned result rather than the intended prompt.
 

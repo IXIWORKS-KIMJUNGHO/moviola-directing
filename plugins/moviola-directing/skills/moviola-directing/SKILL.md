@@ -7,7 +7,7 @@ description: Direct MOVIOLA projects through MOVIOLA MCP tools. Use when Claude 
 
 # MOVIOLA Directing
 
-Use this as the terminal Assistant Director work manual. Skill version `3`: send this exact value as `skill_version` in every `get_draft_outline` call. The server's current Rule Check remains authoritative.
+Use this as the terminal Assistant Director work manual. Skill version `4`: send this exact value as `skill_version` in every `get_draft_outline` call. The server's current Rule Check remains authoritative.
 
 ## Run the directing loop
 
@@ -36,15 +36,16 @@ Read every reference selected below before acting:
 - **Review or critique without mutating the Draft**: [review.md](references/review.md).
 - **Perform any mutation or paid pixel action**: [rule-check.md](references/rule-check.md).
 - **Choose shot specs for Cuts**: [shot-design.md](references/shot-design.md).
+- **Bring another film's cut rhythm into a Scene — the director names a film, or only says ‘긴장감 넘치게’**: [directing-samples.md](references/directing-samples.md).
 - **Author, edit, or review visual direction**: also read [directing-rules.md](references/directing-rules.md).
 - **A genre is established by the Draft briefing or director**: read exactly its guide—[drama](references/genre-drama.md), [action](references/genre-action.md), [thriller](references/genre-thriller.md), [romance](references/genre-romance.md), [horror](references/genre-horror.md), [comedy](references/genre-comedy.md), [fantasy](references/genre-fantasy.md), or [period drama](references/genre-period.md). Ask before committing to genre-specific rhythm only when neither source establishes one.
 Complete when: every reference required by the chosen branch—and no unrelated genre guide—has been read.
 
 ### 3. Semantic tool routing
 - Keep an opinion, evaluation, or idea request read-only. When the director asks for alternatives, separate the proposal from any later edit or paid rerender.
-- Create one Scene with all planned Cuts in one add_scene call. Use add_cut only for later Cut slots inside an existing Scene; insert at the front with afterOrder=0 and after a known Scene with that Scene's order.
+- Create one Scene with all planned Cuts in one add_scene call. Use add_cut only for later Cut slots inside an existing Scene; insert at the front with afterOrder=0 and after a known Cut with that Cut's order.
 - Use update_scene to change only an existing Scene's location, timeOfDay, weather, mood, or description without replacing its Cuts or Character placements.
-- Use update_cut for one focused field and update_cuts for an atomic multi-Cut Cut Spec edit. Use focusSubject for what one Cut watches; use assign_character for Scene-level presence and screen position.
+- Use update_cut for one focused field and update_cuts for an atomic multi-Cut Cut Spec edit. When update_cuts changes nothing, read each not_updated_cuts reason: unchanged, not_found, or locked. Use focusSubject for what one Cut watches; use assign_character for Scene-level presence and screen position.
 - Use dedicated add, delete, move, duplicate, and update tools. Preserve returned Scene and Cut identifiers and use only values advertised by the current schema.
 - Use regenerate_cut once for one existing Cut and regenerate_board once for a whole-board request. Update semantic fields before requesting a rerender. Keep Storyboard and Animatic values in their dedicated fields.
 - Include a concise reason with every mutation that accepts it so the Decision Memo records why the work changed.
@@ -77,6 +78,6 @@ Complete when: Every returned rejection or warning is fixed, confirmed for one n
 - Treat a returned job_id or clip_id as queued or processing, not complete. Poll the matching Job or CutClip status tool at a reasonable interval for a bounded wait; if it is still processing, report its identifier and current status. Use the board, Cut image, Character, or clip readers to inspect a completed asset.
 - Refresh the Draft outline after broad or multi-Scene changes and re-read any target whose state may have changed while confirmation or paid work was pending.
 - Report only returned fields, targets, warnings, counts, and statuses. State partial success, skipped targets, failure, unavailable tools, and still-processing work plainly.
-- Poll get_job_status for image and Character-asset Jobs and get_clip_status for one CutClip; use list_clips for the Draft's Animatic set.
+- Poll get_job_status for image and Character-asset Jobs; while a board Job is processing, report its completedCutCount and totalCutCount. If it fails, report the returned error immediately and do not retry a content_policy_violation unchanged. Poll get_clip_status for one CutClip; use list_clips for the Draft's Animatic set.
 - Stop paid work only on the director's request: cancel_job cancels one image or render Job, and cancel_animatic with its submissionId cancels that submission's CutClip generations. Report the returned outcome plainly — cancelled, too_late, or already_cancelled — and never present a cancellation as a refund or as proof the provider stopped.
 Complete when: The director can distinguish completed work, failed or partial work, pending decisions, and queued work without inference.

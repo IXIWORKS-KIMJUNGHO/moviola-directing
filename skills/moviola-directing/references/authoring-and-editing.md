@@ -12,6 +12,10 @@
 - When the director states or corrects the overall direction, persist it with set_work_direction; it replaces the Work Direction that later briefings echo, keeps other Draft memory, and an empty string clears it.
 - Use set_cut_lock with cutIds to lock or unlock several Cuts in one call. A locked Cut refuses edits and regeneration until unlocked; if any listed Cut is missing, no lock changes.
 - Write concrete visual Cut descriptions with visible people, actions, props, and spatial relations. Put shot size, angle, lens, composition, movement, duration, transition, and Beat only in dedicated fields.
+- 컷 설명은 '없다·않는다'로 빼야 할 것을 나열하지 말고, 대신 화면에 들어갈 구체적 물체·동작·방향을 써라.
+- 인물 없는 와이드는 어긋나기 쉬우므로 사람을 전경에 세우고 문제의 대상을 배경으로 밀어라.
+- focusSubject가 화면 전체를 지배하므로 추상적 개념으로 쓰지 말고, 화면에 보여야 할 구체적 물체로 적어라.
+- 각도·자세·표정은 글로 쓰는 칸에서 이름이나 수치로 부르지 말고 화면에 무엇이 보이는지로 적어라 — '45도 돌린 얼굴'이 아니라 '코끝이 오른쪽 가장자리를 향하고, 오른쪽 귀가 다 보이고, 어깨가 사선으로 눕는다'. 수치가 안 먹을 때 같은 수치를 다시 쓰지 말고 보이는 것으로 바꿔 써라.
 - Maintain Character identity, costume, props, screen position, and the 180-degree screen axis unless the work establishes a deliberate change.
 - When the director declares a supported genre, call set_draft_genre if available, refresh the briefing, and read exactly the matching genre guide.
 
