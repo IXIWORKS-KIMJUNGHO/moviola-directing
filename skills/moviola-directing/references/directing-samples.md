@@ -4,11 +4,14 @@
 
 - 감독이 영화나 대목 이름을 대면 곧장 get_directing_sample 로 그 표본을 읽어라. 이름을 잘못 불러도 있는 표본 이름들이 함께 돌아오므로 한 번이면 바로잡힌다.
 - 느낌만 말하면 list_directing_samples 로 훑어 후보 두셋을 이름과 설명 한 줄로 보이고 감독이 하나 고르게 하라. 둘을 합치지 마라 — 여러 대목의 평균은 아무 색깔도 안 남긴다.
-- get_directing_sample 은 요약을 주지 않는다. 컷 수·총 길이·앵글 배분은 돌아온 표를 직접 세서 알아내라.
+- 감독이 표본 이야기를 아예 안 꺼냈어도 씬을 다시 나눌 때는 list_directing_samples 로 그 씬의 mood 와 겹치는 표본이 있는지 보라. 표본의 느낌 어휘는 우리 Scene 의 mood 와 같은 후보 목록이라 그대로 맞춰볼 수 있다.
+- 겹치는 표본이 있으면 이름과 설명 한 줄로 짚어 '이런 것이 있는데 보시겠습니까' 하고 먼저 물어라. 감독이 고른 뒤에 옮긴다 — 알아서 하나를 골라 적용하지 마라. 감독이 안 고르면 표본 없이 원래대로 나눈다.
+- 목록은 표본마다 느낌·장르와 컷 수·총 길이·평균 컷 길이를 함께 준다. 느낌이 같아 후보가 많으면 그 숫자로 갈라 보여라 — 빠른 긴장이냐 조여드는 긴장이냐. 숫자로 자른 뒤 마지막 판단은 설명 한 줄을 읽어서 한다.
+- get_directing_sample 은 요약을 주지 않는다. 앵글 배분처럼 목록에 없는 것은 돌아온 표를 직접 세서 알아내라.
 - 씬의 총 길이는 유지한다. 표본의 밀도는 컷 수로 옮긴다.
 - 컷 길이는 3초가 하한이라 표본의 실측 소수 길이(1.54초 같은 것)를 그대로 옮길 수 없다. 어느 컷을 합치고 어느 리듬을 살릴지는 규칙이 아니라 연출 판단이다.
 - 표본이 실제로 옮기는 것은 컷 밀도와 앵글 배분이다. 클로즈업 계열 비율은 표본을 봐도 달라지지 않으므로(대사 없는 추격씬이면 표본 없이도 이미 얼굴에 붙는다) 표본을 근거로 인물에 더 붙이지 마라.
 - 표본의 샷 크기·앵글은 우리 Cut Spec 과 같은 후보 목록의 값이라 그대로 옮긴다. 적용은 표본 전용 경로가 아니라 평소의 컷 편집 도구로 한다 — update_cuts · add_cut · delete_cut · move_cut. 어느 표본을 따랐는지 reason 에 적어 결정 메모에 남겨라.
 - 그림이 있는 씬을 다시 나누면 지워지는 컷이 자기 Cut 이미지와 클립을 데려간다. 몇 장이 사라지는지 규모와 함께 말하고 그대로 진행하라 — 그림을 버려도 되냐고 따로 멈춰 묻지 않는다. 다시 그리는 것은 유료라 그때 확인받는다.
 
-Complete when: The new split traces to one sample the director chose: its cut density and angle spread moved into this Scene, every Cut is at least 3 seconds, the Scene's total length is unchanged, and any discarded Cut image count was stated.
+Complete when: Either the director was offered the matching samples and declined, or the new split traces to one sample the director chose: its cut density and angle spread moved into this Scene, every Cut is at least 3 seconds, the Scene's total length is unchanged, and any discarded Cut image count was stated.
