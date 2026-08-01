@@ -6,7 +6,11 @@
 - 느낌만 말하면 list_directing_samples 로 훑어 후보 두셋을 이름과 설명 한 줄로 보이고 감독이 하나 고르게 하라. 둘을 합치지 마라 — 여러 대목의 평균은 아무 색깔도 안 남긴다.
 - 감독이 표본 이야기를 아예 안 꺼냈어도 씬을 다시 나눌 때는 list_directing_samples 로 그 씬의 mood 와 겹치는 표본이 있는지 보라. 표본의 느낌 어휘는 우리 Scene 의 mood 와 같은 후보 목록이라 그대로 맞춰볼 수 있다.
 - 겹치는 표본이 있으면 이름과 설명 한 줄로 짚어 '이런 것이 있는데 보시겠습니까' 하고 먼저 물어라. 감독이 고른 뒤에 옮긴다 — 알아서 하나를 골라 적용하지 마라. 감독이 안 고르면 표본 없이 원래대로 나눈다.
-- 목록은 표본마다 느낌·장르와 컷 수·총 길이·평균 컷 길이를 함께 준다. 느낌이 같아 후보가 많으면 그 숫자로 갈라 보여라 — 빠른 긴장이냐 조여드는 긴장이냐. 숫자로 자른 뒤 마지막 판단은 설명 한 줄을 읽어서 한다.
+- 목록은 표본마다 느낌·장르·조명과 컷 수·총 길이·평균 컷 길이를 함께 준다. 느낌이 같아 후보가 많으면 그 숫자로 갈라 보여라 — 빠른 긴장이냐 조여드는 긴장이냐. 숫자로 자른 뒤 마지막 판단은 설명 한 줄을 읽어서 한다.
+- 표본의 lighting 은 느낌과 쓰는 곳이 다르다. 느낌은 씬의 mood 와 같은 후보라 씬과 바로 맞대볼 수 있지만, 씬에는 조명 칸이 아예 없다 — 씬이 가진 것은 location·timeOfDay·weather·mood·description 뿐이다. 그러니 조명을 씬과 맞춰보려 하지 말고, 컷의 lightingStyle 을 고를 때 근거로 써라. 표본이 실루엣으로 찍은 대목이면 그 컷들의 lightingStyle 도 Silhouette 으로 가는 식이다.
+- 조명으로 표본을 거를 수도 있다. 감독이 '촛불 하나로 버티는 장면' 처럼 빛을 말하면 list_directing_samples 에 lighting 을 걸어라 — 같은 Tense 라도 실루엣으로 찍은 대목과 네온 아래서 찍은 대목이 갈린다. 느낌만으로는 못 가르는 자리다.
+- lighting 의 첫째 값이 그 대목의 지배적 조명이고, 둘째·셋째가 붙어 있으면 대목 안에서 조명이 바뀌었다는 뜻이다. 어느 구간이 어느 조명인지는 표에 안 적혀 있으니 컷 분해표를 보고 스스로 판단하고, 그렇게 판단했다고 감독에게 밝혀라.
+- 조명이 아직 안 적힌 표본이 많다. 없으면 없는 대로 두고 영화 기억으로 채우지 마라 — 그 컷의 조명은 표본 근거 없이 정했다고 말하면 된다.
 - get_directing_sample 은 요약을 주지 않는다. 앵글 배분처럼 목록에 없는 것은 돌아온 표를 직접 세서 알아내라.
 - 표본에 분석이 붙어 있으면 컷 밀도만 옮기고 끝내지 마라. 조회가 함께 준 구간과 컷별 이유를 읽고, get_scene 으로 대상 씬의 Action 과 비트를 읽은 뒤, 원본 구간 · 원본 목적 · 대상 Action · 대상 비트 · 적용 의도 다섯 칸짜리 짧은 대응표를 만들어 감독에게 보여라.
 - 대응은 순번으로 하지 마라 — 표본의 1번 구간을 대상의 1번 컷에 붙이는 식이 아니라, 원본 구간이 하던 일과 같은 일을 하는 대상 씬의 비트를 찾아 거기 붙인다. 구간 수와 대상 컷 수가 서로 다른 것이 정상이다.
@@ -24,6 +28,8 @@
 - 소리 계기와 원테이크를 설명할 때 Camera Track · Previz Render · 오디오 타임라인이 있는 것처럼 말하지 마라. 우리 손에 없다 — 분석은 원본이 왜 거기서 잘렸는지를 알려줄 뿐이다.
 - 표본이 실제로 옮기는 것은 컷 밀도와 앵글 배분이다. 클로즈업 계열 비율은 표본을 봐도 달라지지 않으므로(대사 없는 추격씬이면 표본 없이도 이미 얼굴에 붙는다) 표본을 근거로 인물에 더 붙이지 마라.
 - 표본의 샷 크기·앵글은 우리 Cut Spec 과 같은 후보 목록의 값이라 그대로 옮긴다. 적용은 표본 전용 경로가 아니라 평소의 컷 편집 도구로 한다 — update_cuts · add_cut · delete_cut · move_cut. reason 에는 표본 이름 · 원본 구간 id · 대상 비트 · 왜 그렇게 했는지를 적어라. 대응표가 안 남으므로 나중에 이 판단을 다시 찾을 자리는 결정 메모에 쌓이는 이 한 줄뿐이다.
+- 표본 컷의 move 는 그 컷에서 카메라가 어떻게 움직였는지를 잰 값이다. 컷의 cameraMovement 와 영상으로 뽑을 때의 clipCameraMovement 를 고를 때 이걸 근거로 대라 — 후보 목록이 우리 것과 같아 그대로 옮겨진다. 무빙과 컷 길이가 영상 품질을 제일 크게 가르는 둘이므로, 표본을 딛고 고를 수 있는 자리에서 감으로 고르지 마라.
+- move 가 빈칸인 컷은 잰 사람이 무빙을 판정하지 못한 것이다 — 고정이라는 뜻이 아니다. 그런 컷에서는 무빙을 표본에서 옮기지 말고 지어내 채우지도 마라. 고정 컷임을 확인한 표본은 Static 이라고 적혀 있으니, 빈칸과 Static 을 같이 다루지 마라.
 - 그림이 있는 씬을 다시 나누면 지워지는 컷이 자기 Cut 이미지와 클립을 데려간다. 몇 장이 사라지는지 규모와 함께 말하고 그대로 진행하라 — 그림을 버려도 되냐고 따로 멈춰 묻지 않는다. 다시 그리는 것은 유료라 그때 확인받는다.
 
-Complete when: Either the director was offered the matching samples and declined, or the new split traces to one sample the director chose: its cut density and angle spread moved into this Scene, every Cut is at least 3 seconds, the Scene's total length is unchanged, and any discarded Cut image count was stated. When that sample carried an analysis, every source segment reached a target beat chosen by purpose rather than ordinal, each edit reason names the sample and the source segment it came from, and any segment boundary that had to be merged away—or an original this product cannot reproduce—was stated plainly.
+Complete when: Either the director was offered the matching samples and declined, or the new split traces to one sample the director chose: its cut density and angle spread moved into this Scene, every Cut is at least 3 seconds, the Scene's total length is unchanged, and any discarded Cut image count was stated. When that sample carried an analysis, every source segment reached a target beat chosen by purpose rather than ordinal, each edit reason names the sample and the source segment it came from, and any segment boundary that had to be merged away—or an original this product cannot reproduce—was stated plainly. When it carried a lighting, each Cut's lightingStyle traces to it; when it did not, that was said rather than filled in from memory of the film.
