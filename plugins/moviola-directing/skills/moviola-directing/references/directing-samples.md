@@ -8,11 +8,22 @@
 - 겹치는 표본이 있으면 이름과 설명 한 줄로 짚어 '이런 것이 있는데 보시겠습니까' 하고 먼저 물어라. 감독이 고른 뒤에 옮긴다 — 알아서 하나를 골라 적용하지 마라. 감독이 안 고르면 표본 없이 원래대로 나눈다.
 - 목록은 표본마다 느낌·장르와 컷 수·총 길이·평균 컷 길이를 함께 준다. 느낌이 같아 후보가 많으면 그 숫자로 갈라 보여라 — 빠른 긴장이냐 조여드는 긴장이냐. 숫자로 자른 뒤 마지막 판단은 설명 한 줄을 읽어서 한다.
 - get_directing_sample 은 요약을 주지 않는다. 앵글 배분처럼 목록에 없는 것은 돌아온 표를 직접 세서 알아내라.
+- 표본에 분석이 붙어 있으면 컷 밀도만 옮기고 끝내지 마라. 조회가 함께 준 구간과 컷별 이유를 읽고, get_scene 으로 대상 씬의 Action 과 비트를 읽은 뒤, 원본 구간 · 원본 목적 · 대상 Action · 대상 비트 · 적용 의도 다섯 칸짜리 짧은 대응표를 만들어 감독에게 보여라.
+- 대응은 순번으로 하지 마라 — 표본의 1번 구간을 대상의 1번 컷에 붙이는 식이 아니라, 원본 구간이 하던 일과 같은 일을 하는 대상 씬의 비트를 찾아 거기 붙인다. 구간 수와 대상 컷 수가 서로 다른 것이 정상이다.
+- 원작의 인물 · 소리 · 사물 · 장소 이름은 그대로 옮기지 마라. 그것이 원본에서 맡은 기능만 가져와 대상 씬에 이미 있는 것으로 바꿔라 — 열차 소리가 결심을 밀었다면 대상 씬에서 같은 순간을 미는 소리나 움직임을 골라라.
+- 대응표는 승인 카드가 아니다. 감독이 이미 표본 적용을 청했다면 대응을 설명한 뒤 그대로 진행하라 — 무료 글 편집에 확인 길목을 하나 더 만들지 마라. 멈추는 자리는 제품 제약 때문에 감독이 골라야 할 때뿐이다.
+- 대응표는 어디에도 저장되지 않는다 — 이번 씬에서만 참인 임시 작업물이라 표본에도 씬에도 안 남는다. 같은 표본을 다른 씬에 옮기면 다른 표가 나온다.
 - 씬의 총 길이는 유지한다. 표본의 밀도는 컷 수로 옮긴다.
 - 컷 길이는 3초가 하한이라 표본의 실측 소수 길이(1.54초 같은 것)를 그대로 옮길 수 없다. 어느 컷을 합치고 어느 리듬을 살릴지는 규칙이 아니라 연출 판단이다.
 - 씬 길이 ÷ 3 이 컷 수 천장이다 — 34초 씬은 11컷이 끝이라 평균 1.54초 표본의 22컷을 다 못 옮긴다. 표본 밀도가 천장보다 촘촘하면 몇 컷까지 갈 수 있는지 먼저 말하고 감독이 고르게 하라.
+- 컷을 줄일 때는 같은 원본 구간 · 같은 목적 · 같은 행동선 안의 인접 컷부터 합쳐라 — 되풀이만 사라지고 뜻은 안 사라진다. 그래도 천장을 넘으면 같은 구간 안에서 행동선을 건너 합치고, 구간 경계를 넘는 병합은 마지막 수단이다.
+- 구간 경계를 넘어 합쳤으면 어느 경계를 못 지켰는지 감독에게 말하라 — 거기서만 원본의 기능 경계가 사라진다.
+- 분석이 없는 표본은 컷 밀도와 샷 사양만 옮길 수 있다. 그렇게 말하고, 의미를 대응했다고 말하지 마라.
+- 원테이크 표본은 우리 Cut 이 15초가 상한이라 그대로 못 옮긴다. 참고 전용이라고 밝히고, 감독이 원할 때만 최소 컷 · 지속 관찰 같은 일부 원리를 옮겨라.
+- 그래픽 매치는 이을 두 시각 대상이 대상 씬에 실제로 있을 때만 옮겨라. 없으면 없다고 말하고 넘어가라 — 억지로 만든 매치 컷은 아무것도 안 잇는다.
+- 소리 계기와 원테이크를 설명할 때 Camera Track · Previz Render · 오디오 타임라인이 있는 것처럼 말하지 마라. 우리 손에 없다 — 분석은 원본이 왜 거기서 잘렸는지를 알려줄 뿐이다.
 - 표본이 실제로 옮기는 것은 컷 밀도와 앵글 배분이다. 클로즈업 계열 비율은 표본을 봐도 달라지지 않으므로(대사 없는 추격씬이면 표본 없이도 이미 얼굴에 붙는다) 표본을 근거로 인물에 더 붙이지 마라.
-- 표본의 샷 크기·앵글은 우리 Cut Spec 과 같은 후보 목록의 값이라 그대로 옮긴다. 적용은 표본 전용 경로가 아니라 평소의 컷 편집 도구로 한다 — update_cuts · add_cut · delete_cut · move_cut. 어느 표본을 따랐는지 reason 에 적어 결정 메모에 남겨라.
+- 표본의 샷 크기·앵글은 우리 Cut Spec 과 같은 후보 목록의 값이라 그대로 옮긴다. 적용은 표본 전용 경로가 아니라 평소의 컷 편집 도구로 한다 — update_cuts · add_cut · delete_cut · move_cut. reason 에는 표본 이름 · 원본 구간 id · 대상 비트 · 왜 그렇게 했는지를 적어라. 대응표가 안 남으므로 나중에 이 판단을 다시 찾을 자리는 결정 메모에 쌓이는 이 한 줄뿐이다.
 - 그림이 있는 씬을 다시 나누면 지워지는 컷이 자기 Cut 이미지와 클립을 데려간다. 몇 장이 사라지는지 규모와 함께 말하고 그대로 진행하라 — 그림을 버려도 되냐고 따로 멈춰 묻지 않는다. 다시 그리는 것은 유료라 그때 확인받는다.
 
-Complete when: Either the director was offered the matching samples and declined, or the new split traces to one sample the director chose: its cut density and angle spread moved into this Scene, every Cut is at least 3 seconds, the Scene's total length is unchanged, and any discarded Cut image count was stated.
+Complete when: Either the director was offered the matching samples and declined, or the new split traces to one sample the director chose: its cut density and angle spread moved into this Scene, every Cut is at least 3 seconds, the Scene's total length is unchanged, and any discarded Cut image count was stated. When that sample carried an analysis, every source segment reached a target beat chosen by purpose rather than ordinal, each edit reason names the sample and the source segment it came from, and any segment boundary that had to be merged away—or an original this product cannot reproduce—was stated plainly.

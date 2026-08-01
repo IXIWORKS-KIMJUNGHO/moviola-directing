@@ -7,7 +7,7 @@ description: Direct MOVIOLA projects through MOVIOLA MCP tools. Use when Claude 
 
 # MOVIOLA Directing
 
-Use this as the terminal Assistant Director work manual. Skill version `1.0`: send this exact value as `skill_version` in every `get_draft_outline` call. The server's current Rule Check remains authoritative.
+Use this as the terminal Assistant Director work manual. Skill version `1.1`: send this exact value as `skill_version` in every `get_draft_outline` call. The server's current Rule Check remains authoritative.
 
 ## Run the directing loop
 
