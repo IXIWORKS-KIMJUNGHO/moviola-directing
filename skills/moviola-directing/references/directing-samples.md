@@ -16,7 +16,7 @@
 - 대응은 순번으로 하지 마라 — 표본의 1번 구간을 대상의 1번 컷에 붙이는 식이 아니라, 원본 구간이 하던 일과 같은 일을 하는 대상 씬의 비트를 찾아 거기 붙인다. 구간 수와 대상 컷 수가 서로 다른 것이 정상이다.
 - 원작의 인물 · 소리 · 사물 · 장소 이름은 그대로 옮기지 마라. 그것이 원본에서 맡은 기능만 가져와 대상 씬에 이미 있는 것으로 바꿔라 — 열차 소리가 결심을 밀었다면 대상 씬에서 같은 순간을 미는 소리나 움직임을 골라라.
 - 대응표는 승인 카드가 아니다. 감독이 이미 표본 적용을 청했다면 대응을 설명한 뒤 그대로 진행하라 — 무료 글 편집에 확인 길목을 하나 더 만들지 마라. 멈추는 자리는 제품 제약 때문에 감독이 골라야 할 때뿐이다.
-- 대응표는 어디에도 저장되지 않는다 — 이번 씬에서만 참인 임시 작업물이라 표본에도 씬에도 안 남는다. 같은 표본을 다른 씬에 옮기면 다른 표가 나온다.
+- 대응표는 무비올라에 안 남는다 — 표본에도 씬에도 담을 칸이 없다. 작품 폴더가 있으면 그 씬 절에 적어라(work-folder.md). 같은 표본을 다른 씬에 옮기면 다른 표가 나온다.
 - 씬의 총 길이는 유지한다. 표본의 밀도는 컷 수로 옮긴다.
 - 컷 길이는 3초가 하한이라 표본의 실측 소수 길이(1.54초 같은 것)를 그대로 옮길 수 없다. 어느 컷을 합치고 어느 리듬을 살릴지는 규칙이 아니라 연출 판단이다.
 - 씬 길이 ÷ 3 이 컷 수 천장이다 — 34초 씬은 11컷이 끝이라 평균 1.54초 표본의 22컷을 다 못 옮긴다. 표본 밀도가 천장보다 촘촘하면 몇 컷까지 갈 수 있는지 먼저 말하고 감독이 고르게 하라.
@@ -27,9 +27,9 @@
 - 그래픽 매치는 이을 두 시각 대상이 대상 씬에 실제로 있을 때만 옮겨라. 없으면 없다고 말하고 넘어가라 — 억지로 만든 매치 컷은 아무것도 안 잇는다.
 - 소리 계기와 원테이크를 설명할 때 Camera Track · Previz Render · 오디오 타임라인이 있는 것처럼 말하지 마라. 우리 손에 없다 — 분석은 원본이 왜 거기서 잘렸는지를 알려줄 뿐이다.
 - 표본이 실제로 옮기는 것은 컷 밀도와 앵글 배분이다. 클로즈업 계열 비율은 표본을 봐도 달라지지 않으므로(대사 없는 추격씬이면 표본 없이도 이미 얼굴에 붙는다) 표본을 근거로 인물에 더 붙이지 마라.
-- 표본의 샷 크기·앵글은 우리 Cut Spec 과 같은 후보 목록의 값이라 그대로 옮긴다. 적용은 표본 전용 경로가 아니라 평소의 컷 편집 도구로 한다 — update_cuts · add_cut · delete_cut · move_cut. reason 에는 표본 이름 · 원본 구간 id · 대상 비트 · 왜 그렇게 했는지를 적어라. 대응표가 안 남으므로 나중에 이 판단을 다시 찾을 자리는 결정 메모에 쌓이는 이 한 줄뿐이다.
+- 표본의 샷 크기·앵글은 우리 Cut Spec 과 같은 후보 목록의 값이라 그대로 옮긴다. 적용은 표본 전용 경로가 아니라 평소의 컷 편집 도구로 한다 — update_cuts · add_cut · delete_cut · move_cut. reason 에는 표본 이름과 대상 비트만 한 줄 적어라 — 대응표 전체는 씬 절에 적는다.
 - 표본 컷의 move 는 그 컷에서 카메라가 어떻게 움직였는지를 잰 값이다. 컷의 cameraMovement 와 영상으로 뽑을 때의 clipCameraMovement 를 고를 때 이걸 근거로 대라 — 후보 목록이 우리 것과 같아 그대로 옮겨진다. 무빙과 컷 길이가 영상 품질을 제일 크게 가르는 둘이므로, 표본을 딛고 고를 수 있는 자리에서 감으로 고르지 마라.
 - move 가 빈칸인 컷은 잰 사람이 무빙을 판정하지 못한 것이다 — 고정이라는 뜻이 아니다. 그런 컷에서는 무빙을 표본에서 옮기지 말고 지어내 채우지도 마라. 고정 컷임을 확인한 표본은 Static 이라고 적혀 있으니, 빈칸과 Static 을 같이 다루지 마라.
 - 그림이 있는 씬을 다시 나누면 지워지는 컷이 자기 Cut 이미지와 클립을 데려간다. 몇 장이 사라지는지 규모와 함께 말하고 그대로 진행하라 — 그림을 버려도 되냐고 따로 멈춰 묻지 않는다. 다시 그리는 것은 유료라 그때 확인받는다.
 
-Complete when: Either the director was offered the matching samples and declined, or the new split traces to one sample the director chose: its cut density and angle spread moved into this Scene, every Cut is at least 3 seconds, the Scene's total length is unchanged, and any discarded Cut image count was stated. When that sample carried an analysis, every source segment reached a target beat chosen by purpose rather than ordinal, each edit reason names the sample and the source segment it came from, and any segment boundary that had to be merged away—or an original this product cannot reproduce—was stated plainly. When it carried a lighting, each Cut's lightingStyle traces to it; when it did not, that was said rather than filled in from memory of the film.
+Complete when: Either the director was offered the matching samples and declined, or the new split traces to one sample the director chose: its cut density and angle spread moved into this Scene, every Cut is at least 3 seconds, the Scene's total length is unchanged, and any discarded Cut image count was stated. When that sample carried an analysis, every source segment reached a target beat chosen by purpose rather than ordinal, each edit reason names the sample and the target beat in one line while the full mapping reached the work folder's Scene section when one exists, and any segment boundary that had to be merged away—or an original this product cannot reproduce—was stated plainly. When it carried a lighting, each Cut's lightingStyle traces to it; when it did not, that was said rather than filled in from memory of the film.

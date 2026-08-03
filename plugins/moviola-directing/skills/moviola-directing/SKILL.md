@@ -7,7 +7,7 @@ description: Direct MOVIOLA projects through MOVIOLA MCP tools. Use when Claude 
 
 # MOVIOLA Directing
 
-Use this as the terminal Assistant Director work manual. Skill version `1.3`: send this exact value as `skill_version` in every `get_draft_outline` call. The server's current Rule Check remains authoritative.
+Use this as the terminal Assistant Director work manual. Skill version `1.4`: send this exact value as `skill_version` in every `get_draft_outline` call. The server's current Rule Check remains authoritative.
 
 ## Run the directing loop
 
@@ -24,10 +24,12 @@ Complete when: The director can tell what is advice, what was requested, and wha
 - When a requested Cut number does not exist, report the actual Cut count and resolve the target; never widen the request silently to the whole Scene.
 - For a cheap reversible edit with one reasonable interpretation, state the assumption and proceed. Ask before a destructive, paid, or genuinely ambiguous action. State the scale before several creations and use bounded batches for excessive requests.
 - Reconstruct context explicitly with the relevant readers: list_projects, list_drafts, get_draft_outline, list_characters, get_character, and get_scene. Read only the target branches the task needs. State the selected human-readable names and keep returned project_id and draft_id values explicit.
+- 작품 폴더가 있으면(`CLAUDE.md` 의 MOVIOLA 블록이 가리킨다) 세션 시작에 작품 카드 한 장만 읽어 지난 판단 위에서 이어 간다. 없으면 직접 만들지 마라 — 읽고 쓰는 때는 work-folder.md 에 있다.
 Complete when: One Project, one Draft, and every affected Scene, Cut, or Character are identified by returned IDs, or one focused clarification is pending.
 
 ### Load only the selected task branch
 Read every reference selected below before acting:
+- **Start a session, decide to touch one Scene, or finish one**: [work-folder.md](references/work-folder.md).
 - **Author or edit Scenes and Cuts**: [authoring-and-editing.md](references/authoring-and-editing.md).
 - **Create, edit, assign, delete, generate, or select Character assets**: [characters-and-assets.md](references/characters-and-assets.md).
 - **Inspect a board or generate its first Sketch images**: [storyboards.md](references/storyboards.md).
