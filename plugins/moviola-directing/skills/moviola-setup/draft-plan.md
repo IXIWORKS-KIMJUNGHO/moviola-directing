@@ -1,5 +1,5 @@
 <!-- moviola-setup 씨앗. 세팅은 이 파일을 안 만든다 — 조연출이 첫 계획을 적을 때
-     `moviola/decisions/draft-<draft_id 앞 8자>.md` 로 이 모양을 만든다. -->
+     `moviola/plans/draft-<draft_id 앞 8자>.md` 로 이 모양을 만든다. -->
 
 # <드래프트 이름> — 계획
 

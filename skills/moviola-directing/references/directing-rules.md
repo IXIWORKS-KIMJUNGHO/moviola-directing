@@ -2,7 +2,7 @@
 
 # Canonical Directing Rules
 
-Use skill version `1.4` in every `get_draft_outline` call.
+Use skill version `2.7` in every `get_draft_outline` call.
 
 ## Cut splitting flow
 

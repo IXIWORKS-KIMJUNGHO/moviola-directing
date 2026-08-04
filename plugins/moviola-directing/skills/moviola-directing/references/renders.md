@@ -2,13 +2,15 @@
 
 # Renders and Rerenders
 
-- For a creative revision, update semantic Cut fields first. Confirm regenerate_cut for one Cut or regenerate_board once for a whole-board request; do not fan out one whole-board request into Cut calls.
+- For a creative revision, update semantic Cut fields first. Confirm regenerate_cut for one Cut or regenerate_board once for a whole-board request; do not fan out one whole-board request into Cut calls. For several Cuts inside a few Scenes, pass those Scene ids as regenerate_board's sceneIds instead.
 - 두 번 실패하면 같은 레버를 세 번 당기지 말고 Cut description → focusSubject → shot spec 순으로 다음 깊은 레버를 바꿔 다시 그려라.
 - regenerate_cut and regenerate_board redraw the Sketch only and leave an already finalized image exactly as it was; a corrected Cut reaches its finalized image only through another finalize_render. Settle every Sketch before finalizing rather than retaking afterwards.
 - Check what a retake actually replaced with get_scene: every imageUrls filename carries the job id that produced it, so a Sketch id differing from the Photorealistic id means the finalized image is still the old one. Report a retake as a new Sketch, never as a redrawn final image.
 - Use finalize_render only after Sketch images exist. Pass exactly Digital Art or Photorealistic when those are the advertised styles.
+- A locked Cut is not protected from finalization. Locking keeps generate_storyboard and regenerate_board off a Cut, but finalize_render ignores locks entirely — sceneIds is the only range it reads. Never tell the director a lock will keep a Cut out of a color render.
 - After corrected Cuts have new Sketches, use force=true to finalize the same style again; it is paid and overwrites existing finalized images, so state that before confirmation.
-- force=true refinalizes every Cut in the Draft that has a Sketch, not only the corrected ones — finalize_render takes no Cut or Scene range, and force turns the already-finalized filter off entirely. State that whole count as the paid scale before asking for approval; the number of Cuts you corrected is not the number of images billed.
+- Narrow that refinalize with sceneIds — the Scenes holding the corrected Cuts. force=true switches off the already-finalized filter for whatever finalize_render was handed, so force alone repays for every Cut in the Draft that has a Sketch: correcting one Cut in a 124-Cut Draft bills 124 images. With sceneIds it bills that Scene's Cuts and leaves every other finalized image untouched.
+- State the Cut count of the Scenes you actually passed as the paid scale. Without sceneIds that number is the whole Draft's Sketched Cut count, not the number of Cuts you corrected.
 - Re-read the target immediately before confirmation, resolve the pixel gate, state the affected Cut count and style, then make the paid call.
 - Poll get_job_status. After completion, inspect the changed board or Cut and report the returned result rather than the intended prompt.
 

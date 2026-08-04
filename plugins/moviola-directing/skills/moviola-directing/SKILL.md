@@ -7,7 +7,7 @@ description: Direct MOVIOLA projects through MOVIOLA MCP tools. Use when Claude 
 
 # MOVIOLA Directing
 
-Use this as the terminal Assistant Director work manual. Skill version `1.4`: send this exact value as `skill_version` in every `get_draft_outline` call. The server's current Rule Check remains authoritative.
+Use this as the terminal Assistant Director work manual. Skill version `2.7`: send this exact value as `skill_version` in every `get_draft_outline` call. The server's current Rule Check remains authoritative.
 
 ## Run the directing loop
 
@@ -29,12 +29,12 @@ Complete when: One Project, one Draft, and every affected Scene, Cut, or Charact
 
 ### Load only the selected task branch
 Read every reference selected below before acting:
-- **Start a session, decide to touch one Scene, or finish one**: [work-folder.md](references/work-folder.md).
-- **Author or edit Scenes and Cuts**: [authoring-and-editing.md](references/authoring-and-editing.md).
+- **Start a session, decide to touch one Scene, or finish one**: [work-folder.md](references/work-folder.md), [work-folder-sync.md](references/work-folder-sync.md).
+- **Author or edit Scenes and Cuts**: [authoring-and-editing.md](references/authoring-and-editing.md), [time-continuity.md](references/time-continuity.md).
 - **Create, edit, assign, delete, generate, or select Character assets**: [characters-and-assets.md](references/characters-and-assets.md).
 - **Inspect a board or generate its first Sketch images**: [storyboards.md](references/storyboards.md).
 - **Rerender a Cut or board, or finalize Sketches into color**: [renders.md](references/renders.md).
-- **Edit motion intent, or generate or cancel CutClip video**: [animatics.md](references/animatics.md).
+- **Edit motion intent, or generate, review, or cancel CutClip video**: [animatics.md](references/animatics.md).
 - **Review or critique without mutating the Draft**: [review.md](references/review.md).
 - **Perform any mutation or paid pixel action**: [rule-check.md](references/rule-check.md).
 - **Choose shot specs for Cuts**: [shot-design.md](references/shot-design.md).
@@ -50,6 +50,7 @@ Complete when: every reference required by the chosen branch—and no unrelated 
 - Use update_cut for one focused field and update_cuts for an atomic multi-Cut Cut Spec edit. When update_cuts changes nothing, read each not_updated_cuts reason: unchanged, not_found, or locked. Use focusSubject for what one Cut watches; use assign_character for Scene-level presence and screen position.
 - Use dedicated add, delete, move, duplicate, and update tools. Preserve returned Scene and Cut identifiers and use only values advertised by the current schema.
 - Use regenerate_cut once for one existing Cut and regenerate_board once for a whole-board request. Update semantic fields before requesting a rerender. Keep Storyboard and Animatic values in their dedicated fields.
+- Pass sceneIds to generate_storyboard, regenerate_board, or finalize_render for a partial-Scene request, and state those Scenes' Cut count as the paid scale.
 - Include a concise reason with every mutation that accepts it so the Decision Memo records why the work changed.
 - Use the terminal model's own brain for authoring, shot choices, and creative review. The terminal seat does not borrow MOVIOLA's create_scenario, ai_shot, ai_shot_all, advise, or revision_proposal models.
 Complete when: Every requested meaning maps to one available semantic tool or an honestly reported limitation, with no invented signature or widened scope.
@@ -77,9 +78,9 @@ Complete when: Every referenced Character resolves to one Project-owned record, 
 Complete when: Every returned rejection or warning is fixed, confirmed for one next call, or visibly pending the director's decision.
 
 ### 7. Image/video Jobs and proven-result reporting
-- Treat a returned job_id or clip_id as queued or processing, not complete. Poll the matching Job or CutClip status tool at a reasonable interval for a bounded wait; if it is still processing, report its identifier and current status. Use the board, Cut image, Character, or clip readers to inspect a completed asset.
+- Treat a returned job_id or clip_id as queued, not complete. Poll the matching status tool at a reasonable interval for a bounded wait; if it is still processing, report its identifier and status. Use the board, Cut image, Character, or clip readers to inspect a completed asset.
 - Refresh the Draft outline after broad or multi-Scene changes and re-read any target whose state may have changed while confirmation or paid work was pending.
 - Report only returned fields, targets, warnings, counts, and statuses. State partial success, skipped targets, failure, unavailable tools, and still-processing work plainly.
-- Poll get_job_status for image and Character-asset Jobs; while a board Job is processing, report its completedCutCount and totalCutCount. If it fails, report the returned error immediately and do not retry a content_policy_violation unchanged. Poll get_clip_status for one CutClip; use list_clips for the Draft's Animatic set.
-- Stop paid work only on the director's request: cancel_job cancels one image or render Job, and cancel_animatic with its submissionId cancels that submission's CutClip generations. Report the returned outcome plainly — cancelled, too_late, or already_cancelled — and never present a cancellation as a refund or as proof the provider stopped.
+- Poll get_job_status for image and Character-asset Jobs; report completedCutCount out of totalCutCount, which rise one Cut at a time. While phase is prompt nothing is drawn yet — say so, not 0. On failure report the returned error at once and never retry a content_policy_violation unchanged. Poll get_clip_status for one CutClip; list_clips for the Draft's Animatic set.
+- Stop paid work only on the director's request: cancel_job cancels one image or render Job, cancel_animatic with its submissionId cancels that submission's CutClip generations. Report the returned outcome plainly — cancelled, too_late, or already_cancelled — never as a refund or as proof the provider stopped.
 Complete when: The director can distinguish completed work, failed or partial work, pending decisions, and queued work without inference.

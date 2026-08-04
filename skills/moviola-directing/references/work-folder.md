@@ -3,13 +3,17 @@
 # Work Folder
 
 - `CLAUDE.md`(없으면 `AGENTS.md`)의 MOVIOLA 블록이 이 자리의 작품 폴더를 가리킨다. 경로는 그 블록에 적힌 자리를 쓴다.
-- 세션 시작에 작품 카드(`moviola/project.md`) **한 장만** 읽는다. 계획 파일 전체를 읽지 마라 — 문맥만 태운다.
+- 세션 시작에 작품 카드(`moviola/project.md`) **한 장만** 읽는다. 계획 파일 전체를 읽지 마라 — 문맥만 태운다. 서버 것과 어긋났는지는 work-folder-sync.md 가 본다.
 - 씬별 계획은 그 씬을 손대기로 정한 뒤 **그 절만** 연다. `notes/` 는 파일 이름만 훑고, 감독이 가리키거나 왜 필요한지 말한 뒤에 연다.
 - 드래프트를 새로 만들거나 갈아탔으면 작품 카드의 '지금 쓰는 draft_id' 줄만 고친다. 세팅을 다시 돌리라고 하지 마라.
 - 세팅이 없으면 **직접 만들지 마라.** 계획이 필요한 일 — 씬을 새로 짜거나 다시 나누거나, 표본을 옮기거나, 지난 세션을 이어 할 때 — 에서만 한 번 말하고 `moviola-setup` 을 권한다.
-- 컷 한 칸 편집 · 상태 조회 · 질문 답변에는 폴더 이야기를 꺼내지 마라.
+- 컷 한 칸 편집 · 상태 조회 · 질문 답변에는 폴더 이야기를 꺼내지 마라 — 올리는 이야기도 마찬가지다. 폴더가 없는 자리에서는 조용히 넘어간다.
 - 쓰는 때는 **씬 하나 작업이 끝났을 때 그 씬 절 한 번**이다. 편집마다 쓰지 마라.
-- 계획은 드래프트마다 한 장이다 — `moviola/decisions/draft-<draft_id 앞 8자>.md`. 없으면 그때 만든다.
+- 로컬에 적었으면 **같은 걸음에** 서버에도 올린다 — `put_work_file` 에 작품 카드의 project_id · 폴더 안 상대 경로 · 방금 쓴 파일 **전체**를 준다. 세션 끝에 몰아 올리지 마라: 터미널은 끝났다는 신호 없이 그냥 닫혀서, 몰아 두면 그날 한 일이 통째로 안 올라간다.
+- 그 씬 작업에서 `notes/` 를 고쳤으면 그 파일도 함께 올린다. 안 고친 파일은 다시 올리지 마라. 작품 카드(`project.md`)는 안 올린다 — 서버를 찾아가는 쪽지라 서버가 거절한다.
+- 올리다 실패해도 로컬 작업은 그대로 이어 간다. 어느 파일이 안 올라갔는지 경로로 **한 번 말하고**, 다음 씬을 올릴 때 그 파일부터 같이 올린다. 그 자리에서 되풀이해 다시 걸지 마라.
+- 계획은 드래프트마다 한 장이다 — `moviola/plans/draft-<draft_id 앞 8자>.md`. 없으면 그때 만든다. 옛 이름 `moviola/decisions/` 가 보이면 그게 계획이다 — 직접 옮기지 말고 `moviola-setup` 을 권한다.
+- `moviola/decisions.md` 는 **서버가 만들어 내려주는** 한 장이다 — 결정 메모 전체가 드래프트마다 한 절로 담긴다. 손으로 고치지 말고(다음 세션에 덮인다) 올리지도 마라(서버가 거절한다). 개요가 매 세션 주는 것은 최근 40줄뿐이니, 그보다 앞선 판단을 되짚을 때만 연다.
 - 파일 모양은 **씬마다 한 절**이다. 절 머리는 `## 씬 <scene_id> — <제목> (지금 <n>번째)`, 절 안은 이 씬이 하는 일 · 정한 것 · 표본 대응 · 아직 안 한 것 넷이다.
 - **덧붙여 쓰고, 쓰기 직전에 다시 읽어라.** 같은 작품을 창 두 개에서 열 수 있다 — 통째로 다시 쓰면 다른 창이 방금 적은 것이 사라진다.
 - 확정된 씬의 계획은 결론 두세 줄로 접는다. 결정 메모의 40줄 상한 때문에 태어난 자리가 상한 없는 자리가 되지 않게.
@@ -21,4 +25,4 @@
 - **아직 안 한 계획은 어긋난 게 아니라 남은 일이다.** 지우지 말고 '아직 안 했다'고 말하라 — 로컬 파일에는 복제 같은 되돌림 그릇이 없어 지우면 끝이다.
 - 파일 도구가 없는 자리에서는 폴더 없이 돌고 그 사실을 한 번 말한다. 중요한 판단은 편집 이유에 남긴다.
 
-Complete when: Either the work folder was found and its project card read, or its absence was stated once. Every plan section read or written belongs to a Scene actually being touched, was appended after a fresh read, and names that Scene by id; a stale copied value was corrected while a plan not yet carried out was reported as remaining rather than deleted.
+Complete when: Either the work folder was found and its project card read, or its absence was stated once. Every plan section read or written belongs to a Scene actually being touched, was appended after a fresh read, and names that Scene by id; a stale copied value was corrected while a plan not yet carried out was reported as remaining rather than deleted. Every finished Scene's plan reached the server in the same step it reached the local file—once for that Scene rather than once per edit, carrying the whole file and any note changed for it—or the upload failure was named by path once while local work continued. The server-made decisions.md was neither hand-edited nor uploaded, and was opened only to recover a judgment older than the briefing carries.

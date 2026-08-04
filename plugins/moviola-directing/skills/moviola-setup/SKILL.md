@@ -1,6 +1,6 @@
 ---
 name: moviola-setup
-description: Set up a MOVIOLA work folder — pick the Project on the server, write the project card, and point CLAUDE.md at it. Run once per work folder, by name, before directing from that folder.
+description: Set up a MOVIOLA work folder — pick the Project on the server, write the project card, pull the plans and notes already on the server down into the folder, and point CLAUDE.md at it. Run once per work folder, by name, before directing from that folder — including on a new machine.
 disable-model-invocation: true
 ---
 
@@ -10,17 +10,23 @@ disable-model-invocation: true
 대응표, 클라이언트 원문, 시도했다 버린 안과 이유 — 이 그 자리에 남고, 다음 세션의
 조연출이 그것을 읽고 이어서 일한다.
 
-세팅이 만드는 것은 둘뿐이다.
+같은 내용이 무비올라에도 한 벌 산다. **새 컴퓨터에서는 세팅을 한 번 돌리면 통째로
+내려온다** — 감독이 하는 일은 작품을 고르는 것 하나다.
+
+세팅이 하는 일은 셋이다.
 
 - **`CLAUDE.md` 블록** — 이 자리가 무슨 작품인지와 `moviola/` 를 가리킨다. 터미널이 이
   폴더에서 켜지면 자동으로 읽히므로, 조연출이 폴더를 뒤지거나 등록부를 볼 일이 없다.
-- **`moviola/project.md`** — 서버 주소 · project_id · 지금 쓰는 draft_id.
+- **`moviola/project.md`** — 서버 주소 · project_id · 지금 쓰는 draft_id. 이 파일은
+  **서버에서 안 받는다.** 서버를 찾아가는 쪽지라 서버에 없다 — 목록에서 고른 값으로
+  새로 쓴다. **감독이 손으로 쓰는 것이 아니다.**
+- **서버에 올라와 있는 계획과 노트를 받아 온다** — `plans/` 와 `notes/`.
 
 **경로는 정해져 있다. 감독에게 묻지 마라.** 작품 카드는 `moviola/project.md`, 씬별
-계획은 `moviola/decisions/draft-<draft_id 앞 8자>.md`, 클라이언트 원문과 버린 안은
+계획은 `moviola/plans/draft-<draft_id 앞 8자>.md`, 클라이언트 원문과 버린 안은
 `moviola/notes/`. **한글 제목은 파일을 여는 첫 줄에 쓴다.**
 
-`decisions/` 와 `notes/` 는 **빈 채로 미리 만들지 않는다.** 필요할 때 생긴다.
+`plans/` 와 `notes/` 는 **빈 채로 미리 만들지 않는다.** 필요할 때 생긴다.
 
 정해진 스크립트가 아니라 대화로 도는 스킬이다. 살피고, 찾은 것을 보여주고, 확인받고,
 쓴다.
@@ -33,6 +39,10 @@ disable-model-invocation: true
 
 - `moviola/project.md` 가 이미 있나 — 있으면 **다시 잡는 자리**다. 읽어서 무엇이 이미
   정해졌는지 확인한다.
+- `moviola/decisions/` 가 있나 — 계획이 살던 **옛 이름**이다. 지금 이름은
+  `moviola/plans/` 다. 있으면 4번에서 옮긴다.
+- `moviola/plans/` · `moviola/notes/` 에 파일이 있나 — 있으면 4번에서 그 자리는
+  건너뛴다. 경로를 그대로 적어 둔다.
 - `git rev-parse --is-inside-work-tree` — 여기가 git 저장소 안인가. 안이면
   `git rev-parse --show-toplevel` 로 저장소 뿌리가 어디인지도 본다.
 - `CLAUDE.md` · `AGENTS.md` 가 있나. 있으면 그 안에 `## MOVIOLA` 블록이 이미 있나.
@@ -45,6 +55,8 @@ disable-model-invocation: true
 
 - `list_projects` — 감독이 고를 수 있는 작품 목록.
 - 작품이 정해진 뒤 `list_drafts` — 그 작품의 드래프트 목록.
+- 작품이 정해진 뒤 `list_work_files` — 그 작품의 폴더에 올라와 있는 파일 목록. 내용은
+  안 온다. 여기 나온 것을 4번에서 한 장씩 받는다.
 
 **살펴서 이미 정해진 항목은 2번에서 다시 묻지 않는다.** 이미 있는 `project.md` 의
 작품, 이미 들어 있는 `.gitignore` 줄이 그렇다. 무엇을 건너뛰었는지는 요약에 한 줄로
@@ -102,9 +114,12 @@ disable-model-invocation: true
 쓰기 전에 통째로 보여준다.
 
 - 어느 파일을 새로 만들고 어느 파일을 고치는지 — 경로 그대로.
+- 옮길 폴더 — `moviola/decisions/` → `moviola/plans/` (해당할 때만).
 - `CLAUDE.md`(또는 `AGENTS.md`)에 더할 블록의 실제 문장.
 - `moviola/project.md` 의 실제 내용.
 - `.gitignore` 에 넣을 줄 (해당할 때만).
+- 서버에서 받아올 파일 — 경로와 크기 그대로. 이미 여기 있어서 **건너뛸 파일**도 함께.
+  서버에 아무것도 없으면 "서버에 올라온 것이 없어 **빈 폴더로 시작합니다**"라고 말한다.
 
 감독이 고칠 수 있게 한 뒤에 쓴다.
 
@@ -136,6 +151,18 @@ disable-model-invocation: true
 바뀌면 무시되지 않는 창이 잠깐 열린다. 넣은 뒤 `git check-ignore -q moviola/` 로
 실제로 걸리는지 확인하고 **넣었다고 말한다.** 확인 없이 넣었다고 말하지 마라 — 안 걸린
 채로 두면 다음 커밋에 작품 내용이 실려 나간다.
+
+**옛 이름 폴더는 이름만 바꾼다.** `moviola/decisions/` 가 있으면 `moviola/plans/` 로
+옮긴다 — `mv moviola/decisions moviola/plans`. **안을 열어 고치지 마라.** 계획은 글자
+그대로 남아야 한다. 옮긴 뒤 무엇이 어디로 갔는지 말한다. 둘 다 있으면 옮기지 말고 그
+사실을 말한다 — `mv` 가 옛 폴더를 새 폴더 **안으로** 넣어 버린다.
+
+**그다음에 서버에 있는 것을 받아 온다.** 옮기기가 먼저다 — 받는 것이 먼저면 `plans/`
+가 생겨 옮길 자리가 막힌다. `list_work_files` 가 준 경로마다 `get_work_file` 을 부르고,
+받은 글을 `moviola/` 아래 **같은 경로에 글자 그대로** 쓴다 — 줄바꿈도 한글도 손대지
+마라. **로컬에 이미 있는 파일은 건너뛴다** — 어느 쪽이 새 것인지 견주는 일은 세팅이
+하는 일이 아니다. 받은 파일과 건너뛴 파일을 갈라서 말한다. 받을 것이 하나도 없으면
+폴더를 빈 채로 두고 그 사실을 말한다.
 
 **이미 설정된 자리면 덮어쓰지 않고 고친다.** `moviola/project.md` 가 이미 있으면 바뀐
 줄만 고치고, 감독이 손으로 더한 절은 그대로 둔다.

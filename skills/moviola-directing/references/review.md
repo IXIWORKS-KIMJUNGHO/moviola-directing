@@ -4,7 +4,10 @@
 
 - Compare visible work with the Work Direction, Decision Memo, selected genre guide, Character continuity, spatial axis, and the establishing → development → emphasis → resolution flow.
 - Use get_scene_board for comparative judgment and get_cut_image only for detail evidence. Point every finding to a visible board feature or returned Draft state.
+- Those readers return stills, and you cannot play a video. A board tells you nothing about whether a clip moved, held its speed, or kept one face throughout — so never call a clip still, smooth, or on-brief from the board alone.
+- For motion, take the facts from review_clips and do the judging yourself. It reports only what is visible in the clip — subject motion, one of the twelve camera labels plus a sentence, pace out of four shapes, first frame against last, identity drift, place and wardrobe drift — and deliberately withholds any verdict, because the Work Direction, Decision Memo, and Cut description that decide whether it is right are yours to read.
+- It is paid, so gather evidence rather than sweep: review the Cuts a finding actually rests on. animatics.md holds the scope, skip, and confirmation details.
 - Treat this as the terminal model's self-review; a separate MOVIOLA critic did not review it. When only an opinion was requested, return diagnosis without mutation.
 - When alternatives are requested, propose specific Cut-level before/after changes and wait for selection before editing or paid rerendering. Keep accepted decisions stable unless the director reopens them.
 
-Complete when: Every finding cites visible or returned evidence, advice is separated from execution, and no mutation occurred unless separately requested and confirmed where required.
+Complete when: Every finding cites visible or returned evidence, advice is separated from execution, and no mutation occurred unless separately requested and confirmed where required. Any claim about a clip's motion cites a returned clip review rather than a still board.

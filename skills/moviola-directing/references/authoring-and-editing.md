@@ -13,6 +13,7 @@
 - Use set_cut_lock with cutIds to lock or unlock several Cuts in one call. A locked Cut refuses edits and regeneration until unlocked; if any listed Cut is missing, no lock changes.
 - Write concrete visual Cut descriptions with visible people, actions, props, and spatial relations. Put shot size, angle, lens, composition, movement, duration, transition, and Beat only in dedicated fields.
 - 컷 설명은 '없다·않는다'로 빼야 할 것을 나열하지 말고, 대신 화면에 들어갈 구체적 물체·동작·방향을 써라.
+- 한 씬의 컷 설명은 시간이 흐르게 이어 써라 — 그 컷이 시작하는 순간으로 쓰고, 소품과 인물 사이 거리를 컷마다 잇는다. 어떻게 잇는지는 time-continuity.md 에 있다.
 - 인물 없는 와이드는 어긋나기 쉬우므로 사람을 전경에 세우고 문제의 대상을 배경으로 밀어라.
 - focusSubject가 화면 전체를 지배하므로 추상적 개념으로 쓰지 말고, 화면에 보여야 할 구체적 물체로 적어라.
 - 각도·자세·표정은 글로 쓰는 칸에서 이름이나 수치로 부르지 말고 화면에 무엇이 보이는지로 적어라 — '45도 돌린 얼굴'이 아니라 '코끝이 오른쪽 가장자리를 향하고, 오른쪽 귀가 다 보이고, 어깨가 사선으로 눕는다'. 수치가 안 먹을 때 같은 수치를 다시 쓰지 말고 보이는 것으로 바꿔 써라.
