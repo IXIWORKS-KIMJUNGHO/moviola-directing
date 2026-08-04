@@ -1,0 +1,12 @@
+{
+  "name": "moviola-directing",
+  "version": "2.8.0",
+  "description": "Direct MOVIOLA Drafts with the shared Assistant Director manual and canonical Directing Rules.",
+  "author": {
+    "name": "IXIWORKS",
+    "url": "https://github.com/IXIWORKS-KIMJUNGHO"
+  },
+  "homepage": "https://github.com/IXIWORKS-KIMJUNGHO/moviola-directing",
+  "repository": "https://github.com/IXIWORKS-KIMJUNGHO/moviola-directing",
+  "keywords": ["moviola", "storyboard", "directing", "assistant-director"]
+}

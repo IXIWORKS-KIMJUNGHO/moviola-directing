@@ -38,7 +38,7 @@ Read every reference selected below before acting:
 - **Review or critique without mutating the Draft**: [review.md](references/review.md).
 - **Perform any mutation or paid pixel action**: [rule-check.md](references/rule-check.md).
 - **Choose shot specs for Cuts**: [shot-design.md](references/shot-design.md).
-- **Bring another film's cut rhythm into a Scene — the director names a film, only says ‘긴장감 넘치게’, or says nothing while you re-split a Scene**: [directing-samples.md](references/directing-samples.md).
+- **Use another film's cut rhythm — an exact film and sequence, a feeling/intent/condition/comparison, or an unprompted Scene re-split**: [directing-samples.md](references/directing-samples.md).
 - **Author, edit, or review visual direction**: also read [directing-rules.md](references/directing-rules.md).
 - **A genre is established by the Draft briefing or director**: read exactly its guide—[drama](references/genre-drama.md), [action](references/genre-action.md), [thriller](references/genre-thriller.md), [romance](references/genre-romance.md), [horror](references/genre-horror.md), [comedy](references/genre-comedy.md), [fantasy](references/genre-fantasy.md), or [period drama](references/genre-period.md). Ask before committing to genre-specific rhythm only when neither source establishes one.
 Complete when: every reference required by the chosen branch—and no unrelated genre guide—has been read.

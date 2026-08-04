@@ -1,0 +1,16 @@
+{
+  "name": "ixiworks-moviola",
+  "owner": {
+    "name": "IXIWORKS",
+    "url": "https://github.com/IXIWORKS-KIMJUNGHO"
+  },
+  "plugins": [
+    {
+      "name": "moviola-directing",
+      "source": "./plugins/moviola-directing",
+      "description": "Direct MOVIOLA Drafts with the shared Assistant Director manual and canonical Directing Rules.",
+      "category": "productivity",
+      "keywords": ["moviola", "storyboard", "directing", "assistant-director"]
+    }
+  ]
+}

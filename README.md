@@ -43,6 +43,23 @@ npx skills add IXIWORKS-KIMJUNGHO/moviola-directing \
   --yes
 ```
 
+스킬을 새 판으로 올릴 때도 같은 명령을 다시 실행하면 됩니다. 별도의 업데이트 명령은
+없습니다.
+
+### 2-1. 플러그인으로 설치 (대안)
+
+`npx skills` 대신 Claude Code 플러그인으로 설치해도 됩니다. 두 방식을 함께 설치할 필요는
+없습니다. 플러그인으로 넣으면 `/plugin` 화면에서 설치 목록과 갱신을 함께 관리할 수 있습니다.
+
+```
+/plugin marketplace add IXIWORKS-KIMJUNGHO/moviola-directing
+/plugin install moviola-directing@ixiworks-moviola
+```
+
+두 명령 모두 Claude Code 안에서 실행합니다. 새 판이 나오면
+`/plugin marketplace update ixiworks-moviola`로 목록을 갱신한 뒤 다시 설치합니다.
+플러그인을 써도 개인 토큰을 위한 MCP 연결은 아래에서 한 번 등록해야 합니다.
+
 ### 3. MOVIOLA 연결
 
 발급받은 토큰을 환경 변수로 지정한 다음, 사용자 범위에 MCP 서버를 등록합니다. 사용자

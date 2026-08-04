@@ -2,13 +2,16 @@
 
 # Directing Samples
 
-- 감독이 영화나 대목 이름을 대면 곧장 get_directing_sample 로 그 표본을 읽어라. 이름을 잘못 불러도 있는 표본 이름들이 함께 돌아오므로 한 번이면 바로잡힌다.
-- 느낌만 말하면 list_directing_samples 로 훑어 후보 두셋을 이름과 설명 한 줄로 보이고 감독이 하나 고르게 하라. 둘을 합치지 마라 — 여러 대목의 평균은 아무 색깔도 안 남긴다.
-- 감독이 표본 이야기를 아예 안 꺼냈어도 씬을 다시 나눌 때는 list_directing_samples 로 그 씬의 mood 와 겹치는 표본이 있는지 보라. 표본의 느낌 어휘는 우리 Scene 의 mood 와 같은 후보 목록이라 그대로 맞춰볼 수 있다.
-- 겹치는 표본이 있으면 이름과 설명 한 줄로 짚어 '이런 것이 있는데 보시겠습니까' 하고 먼저 물어라. 감독이 고른 뒤에 옮긴다 — 알아서 하나를 골라 적용하지 마라. 감독이 안 고르면 표본 없이 원래대로 나눈다.
-- 목록은 표본마다 느낌·장르·조명과 컷 수·총 길이·평균 컷 길이를 함께 준다. 느낌이 같아 후보가 많으면 그 숫자로 갈라 보여라 — 빠른 긴장이냐 조여드는 긴장이냐. 숫자로 자른 뒤 마지막 판단은 설명 한 줄을 읽어서 한다.
+- 감독이 **영화와 대목을 함께 정확히 지목**하면 탐색으로 우회하지 말고 곧장 get_directing_sample 로 그 표본 하나를 읽어라. 예: '《매드맥스: 분노의 도로》 추격 클라이맥스처럼'. 이름을 잘못 불러도 가까운 표본 이름 최대 다섯 개가 돌아오므로 그 실제 후보로 바로잡는다.
+- 감독의 말에 **느낌·연출 의도·조건·비교 표현**이 하나라도 있으면 search_directing_samples 를 먼저 써라. 예: '긴장감 있게' · '대사를 줄이고 느린 호흡으로' · '촛불 아래 정적인 대화' · '이 표본과 비슷하지만 덜 잘게'. Scene 문맥은 sceneId, 필수 조건은 must, 타협 가능한 취향은 prefer, 비교는 sampleId 와 pace 로 구조화한다. 닫힌 후보 밖 의미를 지어내지 마라.
+- 감독이 표본 이야기를 아예 안 꺼냈어도 씬을 다시 나눌 때는 search_directing_samples 에 sceneId 를 주어 그 Scene 의 mood 와 Draft genre 에서 후보를 찾아라. Scene 은 검색 시작점일 뿐 그래프나 대응표에 저장되지 않는다.
+- 검색 결과에서는 실제 candidates 중 **둘 또는 셋**만 보여라. 각 후보의 이름(id와 영화·대목), 짧은 설명은 반환된 blurb, 관계 근거는 반환된 whyMatched 와 evidencePaths, 각 경로의 provenance 및 provenanceSummary 에서만 가져온다. 설명을 새로 쓰거나 경로에 없는 기법·효과·의도를 보태지 말고, unmatchedPreferences 가 있으면 타협점도 숨기지 마라. 실제 후보가 하나뿐이면 숫자를 채우지 말고 하나뿐이라고 밝혀라.
+- 후보를 보여준 뒤에는 감독에게 **반드시 하나를 고르게** 하라. 탐색은 읽기일 뿐 적용이 아니다 — 선택 전에는 get_directing_sample 로 여러 벌을 읽어 섞지 말고, Scene 을 편집하지 말고, 첫 후보를 자동 적용하지 마라. 감독이 안 고르면 표본 없이 원래대로 진행하거나 조건을 풀지 물어라.
+- 감독이 하나를 고른 뒤에만 그 id로 get_directing_sample 을 호출해 컷 분해표와 의미 분석 전체를 읽고 아래의 기존 적용 절차를 그대로 따른다. 여러 표본을 자동으로 합치지 마라 — 여러 대목의 평균은 아무 색깔도 안 남긴다.
+- list_directing_samples 는 감독이 조건 없는 전체 목록 자체를 요청했을 때만 쓰는 하위 호환 조회다. 기존 정확 필터 인자는 옛 호출자를 위해 남아 있지만 새 조연출 탐색 경로에서는 쓰지 않는다. 목록 요청이라도 느낌·의도·조건·비교가 붙으면 search_directing_samples 를 먼저 써라.
+- 탐색 후보는 표본마다 느낌·장르·조명과 컷 수·총 길이·평균 컷 길이를 함께 준다. 느낌이 같아 후보가 많으면 실제 숫자로 갈라 보여라 — 빠른 긴장이냐 조여드는 긴장이냐. 마지막 판단도 반환된 blurb 와 근거 경로 안에서만 한다.
 - 표본의 lighting 은 느낌과 쓰는 곳이 다르다. 느낌은 씬의 mood 와 같은 후보라 씬과 바로 맞대볼 수 있지만, 씬에는 조명 칸이 아예 없다 — 씬이 가진 것은 location·timeOfDay·weather·mood·description 뿐이다. 그러니 조명을 씬과 맞춰보려 하지 말고, 컷의 lightingStyle 을 고를 때 근거로 써라. 표본이 실루엣으로 찍은 대목이면 그 컷들의 lightingStyle 도 Silhouette 으로 가는 식이다.
-- 조명으로 표본을 거를 수도 있다. 감독이 '촛불 하나로 버티는 장면' 처럼 빛을 말하면 list_directing_samples 에 lighting 을 걸어라 — 같은 Tense 라도 실루엣으로 찍은 대목과 네온 아래서 찍은 대목이 갈린다. 느낌만으로는 못 가르는 자리다.
+- 조명으로 표본을 찾을 수도 있다. 감독이 '촛불 하나로 버티는 장면'처럼 빛을 말하면 search_directing_samples 의 lighting 조건을 must 또는 prefer 에 걸어라 — 같은 Tense 라도 실루엣으로 찍은 대목과 네온 아래서 찍은 대목이 갈린다. 느낌만으로는 못 가르는 자리다.
 - lighting 의 첫째 값이 그 대목의 지배적 조명이고, 둘째·셋째가 붙어 있으면 대목 안에서 조명이 바뀌었다는 뜻이다. 어느 구간이 어느 조명인지는 표에 안 적혀 있으니 컷 분해표를 보고 스스로 판단하고, 그렇게 판단했다고 감독에게 밝혀라.
 - 조명이 아직 안 적힌 표본이 많다. 없으면 없는 대로 두고 영화 기억으로 채우지 마라 — 그 컷의 조명은 표본 근거 없이 정했다고 말하면 된다.
 - get_directing_sample 은 요약을 주지 않는다. 앵글 배분처럼 목록에 없는 것은 돌아온 표를 직접 세서 알아내라.
@@ -32,4 +35,4 @@
 - move 가 빈칸인 컷은 잰 사람이 무빙을 판정하지 못한 것이다 — 고정이라는 뜻이 아니다. 그런 컷에서는 무빙을 표본에서 옮기지 말고 지어내 채우지도 마라. 고정 컷임을 확인한 표본은 Static 이라고 적혀 있으니, 빈칸과 Static 을 같이 다루지 마라.
 - 그림이 있는 씬을 다시 나누면 지워지는 컷이 자기 Cut 이미지와 클립을 데려간다. 몇 장이 사라지는지 규모와 함께 말하고 그대로 진행하라 — 그림을 버려도 되냐고 따로 멈춰 묻지 않는다. 다시 그리는 것은 유료라 그때 확인받는다.
 
-Complete when: Either the director was offered the matching samples and declined, or the new split traces to one sample the director chose: its cut density and angle spread moved into this Scene, every Cut is at least 3 seconds, the Scene's total length is unchanged, and any discarded Cut image count was stated. When that sample carried an analysis, every source segment reached a target beat chosen by purpose rather than ordinal, each edit reason names the sample and the target beat in one line while the full mapping reached the work folder's Scene section when one exists, and any segment boundary that had to be merged away—or an original this product cannot reproduce—was stated plainly. When it carried a lighting, each Cut's lightingStyle traces to it; when it did not, that was said rather than filled in from memory of the film.
+Complete when: An exact film-and-sequence request went straight to one exact lookup; every feeling, intent, condition, comparison, or unprompted re-split searched first. The director saw two or three actual returned candidates—with only their returned blurb, whyMatched, evidence paths, and path provenance/provenance summary—and either declined or chose exactly one before any Scene mutation. The new split then traces to that one chosen sample: its cut density and angle spread moved into this Scene, every Cut is at least 3 seconds, the Scene's total length is unchanged, and any discarded Cut image count was stated. When that sample carried an analysis, every source segment reached a target beat chosen by purpose rather than ordinal, each edit reason names the sample and the target beat in one line while the full mapping reached the work folder's Scene section when one exists, and any segment boundary that had to be merged away—or an original this product cannot reproduce—was stated plainly. When it carried a lighting, each Cut's lightingStyle traces to it; when it did not, that was said rather than filled in from memory of the film.
