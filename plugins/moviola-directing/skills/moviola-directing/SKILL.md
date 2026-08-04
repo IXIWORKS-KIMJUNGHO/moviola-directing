@@ -7,7 +7,7 @@ description: Direct MOVIOLA projects through MOVIOLA MCP tools. Use when Claude 
 
 # MOVIOLA Directing
 
-Use this as the terminal Assistant Director work manual. Skill version `2.7`: send this exact value as `skill_version` in every `get_draft_outline` call. The server's current Rule Check remains authoritative.
+Use this as the terminal Assistant Director work manual. Skill version `2.8`: send this exact value as `skill_version` in every `get_draft_outline` call. The server's current Rule Check remains authoritative.
 
 ## Run the directing loop
 
@@ -65,7 +65,7 @@ Complete when: Every high-impact call has fresh confirmation for a named target 
 ### 5. Character and asset work
 - Read the Project Character roster before creation. Update an existing match instead of creating a duplicate, and give new Characters proper names. Do not use a 직업·역할어 (job or role label) such as friend, villain, detective, or doctor as a name.
 - Use update_character for identity fields and report only returned changed fields. Put a new Korean display name in name_ko and use name only to identify the current Character when required.
-- Use assign_character for Scene presence and screen position, and focusSubject for one Cut's visual focus. Confirm a Character deletion by human-readable name; if the name is absent or duplicated, leave every Character intact and ask once.
+- Use assign_character for Scene presence, screen position, and the costume worn only in that Scene, and focusSubject for one Cut's visual focus. Confirm a Character deletion by human-readable name; if the name is absent or duplicated, leave every Character intact and ask once.
 - Treat Portrait, Character Plate, Reference Image, and Character Reference Sheet states as returned asset facts. Selection may start downstream paid work, so inspect the Character and confirm immediately before selection.
 - Read characters-and-assets.md whenever creating, editing, deleting, assigning, generating, or selecting Character assets.
 Complete when: Every referenced Character resolves to one Project-owned record, every requested placement is explicit, and each requested asset state is proven or pending by returned status.
